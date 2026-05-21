@@ -39,7 +39,8 @@ export default function Register() {
       setUser(response.data);
       navigate('/');
     } catch (err: any) {
-      setError(err.response?.data?.message || 'Registration failed');
+      console.error(err);
+      setError(`Error: ${err.message} - ${err.response?.data?.message || JSON.stringify(err.response?.data) || 'Unknown error'}`);
     }
   };
 
